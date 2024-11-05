@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<title>BTCL TNDP Dashboard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+      font-family: sans-serif; 
+      margin: 0px;
+    }
+
+.header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 20px; 
+  background-color: #f2f2f2; /* Light gray background */
+  padding: 10px 20px; /* Add some padding */
+  border-bottom: 1px solid #ddd; /* Subtle bottom border */
+}
+.footer { 
+      background-color: #ddd;
+      text-align: center;
+      margin-top: 30px; 
+      font-size: 0.9em; 
+      color: #666; 
+    }
+
+.header a { 
+  text-decoration: none;
+  color: #04AA6D; 
+  font-weight: bold;
+}
+
+h1, h2 {
+  text-align: center;
+}
+h1 {
+  font-size: 2.5em; /* Adjust the size as needed */
+  color: #333; /* Dark gray color */
+  margin-bottom: 20px;
+}
+#reportToggle {
+      background-color: #04AA6D; 
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+#alarms {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#alarms td, #alarms th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+#alarms tr:nth-child(even){background-color: #f2f2f2;}
+
+#alarms tr:hover {background-color: #ddd;}
+
+#alarms th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+  width: 9%;
+}
+.hidden {
+    display: none;
+}
+table td a {
+  display: block;
+}
+.bg-danger {
+	background-color: red;
+	color: white;
+	padding: 2px 4px; 
+	border-radius: 3px;
+}
+.bg-info {
+	background-color: green;
+	color: white;
+	padding: 2px 4px; 
+	border-radius: 3px;
+}
+.no-ul {
+	text-decoration: none;
+}
+</style>
+</head>
+<body>
+<div class="header wrapper"><a href='D:\BTCL System\index.html'>Home</a> <h1>TNDP Dashboard</h1>
+<button id="reportToggle">Show Full Report</button></div>
+<h2>Chattogram Region</h2>
+<div><table id="alarms">
+<tr><th>Exchange</th><th>Connection <span style="font-size:8px">(approx)</span></th><th class='hidden'>ONT</th><th class='hidden'>MDU</th><th class='hidden'>POTS</th><th class='hidden'>ETH</th><th>Fiber Break</th><th class='hidden'>Low Optics</th><th class='hidden'>Major</th><th class='hidden'>Minor</th><th>New ONT</th></tr>
+
+<tr><td><a href='/tndp/dashboard.php?exchange=Agrabad'>Agrabad</a></td><td>625</td><td class='hidden'>523</td><td class='hidden'>14</td><td class='hidden'>102</td><td class='hidden'>255</td><td><a class='no-ul' href='alarm.php?exchange=Agrabad&amp;priority=major&amp;event=inact'><span class='bg-danger'>31</span></a></td><td class='hidden'>41</td><td class='hidden'>130</td><td class='hidden'>120</td><td><a class='no-ul' href='alarm.php?exchange=Agrabad&amp;priority=minor&amp;event=newont'><span class='bg-info'>1</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=Bayezid'>Bayezid</a></td><td>748</td><td class='hidden'>428</td><td class='hidden'>42</td><td class='hidden'>320</td><td class='hidden'>840</td><td><a class='no-ul' href='alarm.php?exchange=Bayezid&amp;priority=major&amp;event=inact'><span class='bg-danger'>10</span></a></td><td class='hidden'>21</td><td class='hidden'>74</td><td class='hidden'>78</td><td><a class='no-ul' href='alarm.php?exchange=Bayezid&amp;priority=minor&amp;event=newont'><span class='bg-info'>1</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=CEPZ'>CEPZ</a></td><td>130</td><td class='hidden'>64</td><td class='hidden'>6</td><td class='hidden'>66</td><td class='hidden'>78</td><td><a class='no-ul' href='alarm.php?exchange=CEPZ&amp;priority=major&amp;event=inact'><span class='bg-danger'>1</span></a></td><td class='hidden'>0</td><td class='hidden'>3</td><td class='hidden'>24</td><td>0</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=Guptakhal'>Guptakhal</a></td><td>93</td><td class='hidden'>42</td><td class='hidden'>6</td><td class='hidden'>51</td><td class='hidden'>88</td><td>0</span></a></td><td class='hidden'>1</td><td class='hidden'>4</td><td class='hidden'>0</td><td>0</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=Kalurghat'>Kalurghat</a></td><td>242</td><td class='hidden'>206</td><td class='hidden'>5</td><td class='hidden'>36</td><td class='hidden'>104</td><td><a class='no-ul' href='alarm.php?exchange=Kalurghat&amp;priority=major&amp;event=inact'><span class='bg-danger'>1</span></a></td><td class='hidden'>11</td><td class='hidden'>57</td><td class='hidden'>25</td><td>0</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=Mirsarai'>Mirsarai</a></td><td>36</td><td class='hidden'>36</td><td class='hidden'></td><td class='hidden'></td><td class='hidden'></td><td><a class='no-ul' href='alarm.php?exchange=Mirsarai&amp;priority=major&amp;event=inact'><span class='bg-danger'>3</span></a></td><td class='hidden'>0</td><td class='hidden'>13</td><td class='hidden'>9</td><td>0</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=Muradpur'>Muradpur</a></td><td>1021</td><td class='hidden'>881</td><td class='hidden'>7</td><td class='hidden'>140</td><td class='hidden'>202</td><td><a class='no-ul' href='alarm.php?exchange=Muradpur&amp;priority=major&amp;event=inact'><span class='bg-danger'>15</span></a></td><td class='hidden'>35</td><td class='hidden'>206</td><td class='hidden'>140</td><td><a class='no-ul' href='alarm.php?exchange=Muradpur&amp;priority=minor&amp;event=newont'><span class='bg-info'>1</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=Nandankanon'>Nandankanon</a></td><td>851</td><td class='hidden'>524</td><td class='hidden'>32</td><td class='hidden'>327</td><td class='hidden'>704</td><td><a class='no-ul' href='alarm.php?exchange=Nandankanon&amp;priority=major&amp;event=inact'><span class='bg-danger'>19</span></a></td><td class='hidden'>49</td><td class='hidden'>176</td><td class='hidden'>114</td><td>0</span></a></td></tr>
+</table></div>
+
+<h2>Dhaka Region</h2>
+<div><table id="alarms">
+<tr><th>Exchange</th><th>Connection <span style="font-size:8px">(approx)</span></th><th class='hidden'>ONT</th><th class='hidden'>MDU</th><th class='hidden'>POTS</th><th class='hidden'>ETH</th><th>Fiber Break</th><th class='hidden'>Low Optics</th><th class='hidden'>Major</th><th class='hidden'>Minor</th><th>New ONT</th></tr>
+
+<tr><td><a href='/tndp/dashboard.php?exchange=Fakirapool'>Fakirapool</a></td><td>1044</td><td class='hidden'>33</td><td class='hidden'>83</td><td class='hidden'>1011</td><td class='hidden'>1536</td><td><a class='no-ul' href='alarm.php?exchange=Fakirapool&amp;priority=major&amp;event=inact'><span class='bg-danger'>1</span></a></td><td class='hidden'>1</td><td class='hidden'>10</td><td class='hidden'>16</td><td>0</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=Gulshan'>Gulshan</a></td><td>2458</td><td class='hidden'>197</td><td class='hidden'>318</td><td class='hidden'>2261</td><td class='hidden'>5896</td><td><a class='no-ul' href='alarm.php?exchange=Gulshan&amp;priority=major&amp;event=inact'><span class='bg-danger'>49</span></a></td><td class='hidden'>16</td><td class='hidden'>95</td><td class='hidden'>89</td><td>0</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=Mirpur'>Mirpur</a></td><td>1801</td><td class='hidden'>290</td><td class='hidden'>188</td><td class='hidden'>1511</td><td class='hidden'>3648</td><td><a class='no-ul' href='alarm.php?exchange=Mirpur&amp;priority=major&amp;event=inact'><span class='bg-danger'>23</span></a></td><td class='hidden'>11</td><td class='hidden'>101</td><td class='hidden'>164</td><td>0</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=Mogbazar'>Mogbazar</a></td><td>2543</td><td class='hidden'>13</td><td class='hidden'>276</td><td class='hidden'>2530</td><td class='hidden'>2565</td><td><a class='no-ul' href='alarm.php?exchange=Mogbazar&amp;priority=major&amp;event=inact'><span class='bg-danger'>7</span></a></td><td class='hidden'>12</td><td class='hidden'>105</td><td class='hidden'>136</td><td><a class='no-ul' href='alarm.php?exchange=Mogbazar&amp;priority=minor&amp;event=newont'><span class='bg-info'>3</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=Nilkhet'>Nilkhet</a></td><td>1514</td><td class='hidden'>460</td><td class='hidden'>140</td><td class='hidden'>1054</td><td class='hidden'>2584</td><td><a class='no-ul' href='alarm.php?exchange=Nilkhet&amp;priority=major&amp;event=inact'><span class='bg-danger'>3</span></a></td><td class='hidden'>6</td><td class='hidden'>30</td><td class='hidden'>24</td><td>0</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=Ramna'>Ramna</a></td><td>3278</td><td class='hidden'>7</td><td class='hidden'>264</td><td class='hidden'>3271</td><td class='hidden'>1874</td><td><a class='no-ul' href='alarm.php?exchange=Ramna&amp;priority=major&amp;event=inact'><span class='bg-danger'>2</span></a></td><td class='hidden'>13</td><td class='hidden'>75</td><td class='hidden'>18</td><td>0</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=Sher-e-Bangla'>Sher-e-Bangla</a></td><td>5657</td><td class='hidden'>195</td><td class='hidden'>455</td><td class='hidden'>5462</td><td class='hidden'>1320</td><td><a class='no-ul' href='alarm.php?exchange=Sher-e-Bangla&amp;priority=major&amp;event=inact'><span class='bg-danger'>16</span></a></td><td class='hidden'>42</td><td class='hidden'>175</td><td class='hidden'>204</td><td><a class='no-ul' href='alarm.php?exchange=Sher-e-Bangla&amp;priority=minor&amp;event=newont'><span class='bg-info'>1</span></a></td></tr>
+<tr><td><a href='/tndp/dashboard.php?exchange=Uttara'>Uttara</a></td><td>1557</td><td class='hidden'>174</td><td class='hidden'>155</td><td class='hidden'>1383</td><td class='hidden'>689</td><td><a class='no-ul' href='alarm.php?exchange=Uttara&amp;priority=major&amp;event=inact'><span class='bg-danger'>4</span></a></td><td class='hidden'>16</td><td class='hidden'>80</td><td class='hidden'>62</td><td><a class='no-ul' href='alarm.php?exchange=Uttara&amp;priority=minor&amp;event=newont'><span class='bg-info'>2</span></a></td></tr>
+</table></div>
+<h2>Sylhet Region</h2>
+<div><table id="alarms">
+<tr><th>Exchange</th><th>Connection <span style="font-size:8px">(approx)</span></th><th class='hidden'>ONT</th><th class='hidden'>MDU</th><th class='hidden'>POTS</th><th class='hidden'>ETH</th><th>Fiber Break</th><th class='hidden'>Low Optics</th><th class='hidden'>Major</th><th class='hidden'>Minor</th><th>New ONT</th></tr>
+
+<tr><td><a href='/tndp/dashboard.php?exchange=Moulovibazar'>Moulovibazar</a></td><td>382</td><td class='hidden'>296</td><td class='hidden'>17</td><td class='hidden'>86</td><td class='hidden'>272</td><td><a class='no-ul' href='alarm.php?exchange=Moulovibazar&amp;priority=major&amp;event=inact'><span class='bg-danger'>9</span></a></td><td class='hidden'>45</td><td class='hidden'>82</td><td class='hidden'>55</td><td><a class='no-ul' href='alarm.php?exchange=Moulovibazar&amp;priority=minor&amp;event=newont'><span class='bg-info'>5</span></a></td></tr>
+</table></div>
+<div class="footer">Developed by: <a href="mailto:genz05082024@gmail.com">Makhon Chandra Barman</a>, Customer Care Representative (Oparation), BTCL</div>
+<script>
+const toggleButton = document.getElementById('reportToggle');
+const hiddenColumns = document
+.querySelectorAll('.hidden');
+
+toggleButton.addEventListener('click', () => {
+  hiddenColumns.forEach(column => {
+    column.classList.toggle('hidden');
+  });
+
+  // Toggle button text
+  toggleButton.textContent = toggleButton.textContent === 'Show Full Report' ? 'Hide Full Report' : 'Show Full Report';
+});
+</script>
+
+</body>
+</html>

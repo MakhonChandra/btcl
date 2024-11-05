@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BTCL Auto Tracing Portal</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="  crossorigin="anonymous" 
+          onerror="this.onerror=null;this.href='fontawesome/css/all.min.css';">
+    <style>
+        :root {
+            color-scheme: light dark; /* Tell the browser to support both light and dark modes */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif; /* Use a more professional font */
+            text-align: center;
+            background-color: #f4f4f4; /* Light mode background */
+            color: #333; /* Light mode text color */
+            margin: 0; /* Remove default body margins */
+            padding: 20px; /* Add padding for better spacing */
+            position: relative; /* Allow positioning of the logo */
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #222; /* Dark mode background */
+                color: #eee; /* Dark mode text color */
+            }
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5em; /* Larger heading */
+            color: #006600; /* BTCL Green */
+        }
+
+        h1 .highlight {
+            font-weight: bold;
+            color: #00cc00; /* Brighter Green */
+        }
+
+        p {
+            margin-bottom: 30px;
+            font-size: 1.2em; /* Slightly larger paragraph text */
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 10px;
+            padding: 20px;
+            text-align: left;
+            width: 250px; /* Adjust width as needed */
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .card h2 {
+            color: #006600; /* BTCL Green */
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .card a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #006600; /* BTCL Green */
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .card a:hover {
+            background-color: #004400; /* Darker Green on hover */
+        }
+
+        .fa {
+            margin-right: 5px;
+        }
+
+        .special-card {
+            background-color: #f0f0f0; /* Light gray background */
+            border: 2px dashed #006600; /* Dashed green border */
+            padding: 15px;
+            text-align: center;
+            width: 300px; /* Wider card */
+        }
+
+        .special-card h2 {
+            color: #006600; /* BTCL Green */
+            margin-bottom: 5px;
+        }
+
+        .special-card p {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .special-card a {
+            background-color: #006600; /* BTCL Green */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .special-card a:hover {
+            background-color: #004400; /* Darker Green on hover */
+        }
+
+        .special-card img {
+            max-width: 100px; /* Adjust as needed */
+            height: auto;
+            margin-bottom: 10px;
+            display: block; /* Center the image */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .logo-watermark {
+            position: fixed; /* Make the logo fixed */
+            top: 0;
+            left: 0;
+            width: 100%; /* Make the logo fill the entire width */
+            height: 100%; /* Make the logo fill the entire height */
+            background-image: url("D:/BTCL System/img/bg-1.png"); /* Add background image */
+            background-repeat: no-repeat; /* Prevent repeating the image */
+            background-position: center center; /* Center the image */
+            background-size: 20%; /* Make the logo fit within the container */
+            z-index: -1; /* Place the logo behind other content */
+        }
+
+        footer {
+            background-color: #006600; /* BTCL Green */
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            bottom: 100%;
+            width: 100%;
+        }
+
+        footer a {
+            color: #fff; /* White text */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .top-left-logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            max-width: 100px; /* Adjust as needed */
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: calc(50% - 20px);
+            }
+            .special-card {
+                width: calc(100% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img class="top-left-logo" src="https://th.bing.com/th/id/R.d8fc0439386268f63d04529299283e4c?rik=Q8Ty%2fDc80AOwYQ&riu=http%3a%2f%2fwww.mybdix.com%2fimg%2fpartner%2fBTCL.png&ehk=iUAZAvvSH6k1D48OG0AiRopOhbkiBG%2fJoFaj%2fVKP2kU%3d&risl=&pid=ImgRaw&r=0" alt="Digicon Logo"> 
+
+    <h1>
+        <span>Welcome to the</span> 
+        <span class="highlight">BTCL Auto Tracing</span> 
+        <span>Portal!</span>
+    </h1>
+
+    <p>This portal provides quick access to essential BTCL services and tools.</p>
+
+    <div class="container">
+        <div class="card">
+            <h2>TNDP GPON</h2>
+            <p>Manage BTCL's older GPON network.</p>
+            <a href="tndp.html" title="BTCL Old GPON Management">
+                <i class="fa fa-sitemap"></i> Access TNDP GPON
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>MOTN GPON</h2>
+            <p>Manage BTCL's newer MOTN GPON network.</p>
+            <a href="/motn/" title="BTCL MOTN GPON Management">
+                <i class="fa fa-network-wired"></i> Access MOTN GPON
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>Phone Number Information</h2>
+            <p>Find information about BTCL phone numbers.</p>
+            <a href="//number.btcl.gov.bd" title="BTCL Phone Number Information">
+                <i class="fa fa-phone"></i> Phone Number Info
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>SpeedTest (+Cache)</h2>
+            <p>Test your internet speed with cache enabled.</p>
+            <a href="http://203.112.217.99/" title="BTCL SpeedTest with Cache">
+                <i class="fa fa-tachometer-alt"></i> Run SpeedTest (+Cache)
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>SpeedTest (-Cache)</h2>
+            <p>Test your internet speed with cache disabled.</p>
+            <a href="/speedtest/" title="BTCL SpeedTest without Cache">
+                <i class="fa fa-tachometer-alt"></i> Run SpeedTest (-Cache)
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>My BTCL</h2>
+            <p>Access your BTCL account.</p>
+            <a href="https://mybtcl.btcl.gov.bd" title="BTCL My BTCL">
+                <i class="fa fa-user"></i> My BTCL
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>BTCL Website</h2>
+            <p>Visit the official BTCL website.</p>
+            <a href="https://btcl.com.bd" title="BTCL Website">
+                <i class="fa fa-globe"></i> BTCL Website
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>BTCL Portal</h2>
+            <p>Access the BTCL portal.</p>
+            <a href="https://btcl.portal.gov.bd" title="BTCL Portal">
+                <i class="fa fa-building"></i> BTCL Portal
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>BTCL Support</h2>
+            <p>Visit the BTCL support website.</p>
+            <a href="http://support.btcl.gov.bd/" title="BTCL Support">
+                <i class="fa fa-question-circle"></i> BTCL OSS Portal
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>Domain BTCL</h2>
+            <p>Visit the BTCL domain website.</p>
+            <a href="https://bdia.btcl.com.bd/" title="BTCL BDIA">
+                <i class="fa fa-network-wired"></i> Domain
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>BTCL Internet</h2>
+            <p>Visit the BTCL Internet website.</p>
+            <a href="https://internet.btcl.gov.bd/" title="BTCL Internet">
+                <i class="fa fa-globe"></i> BTCL Internet
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>Alaap</h2>
+            <p>Visit the Alaap website.</p>
+            <a href="https://alaap.gov.bd/" title="Alaap">
+                <i class="fa fa-globe"></i> Alaap
+            </a>
+        </div>
+
+        <div class="special-card">
+            <img src="https://cdn.contactcenterworld.com/images/company/digicon-technologies-ltd.-600px-logo.jpeg" alt="Digicon Logo"> 
+            <h2>Digicon</h2>
+            <p>This is a special link with a different style.</p>
+            <a href="http://103.73.38.25:8001/" title="Special Link">
+                Access Digicon Employees
+            </a>
+        </div>
+    </div>
+
+    <div class="logo-watermark"></div> 
+
+    <footer>
+        Developed by: <a href="mailto:genz05082024@gmail.com">Makhon Chandra Barman</a>, Customer Care Representative (Oparation), BTCL
+    </footer>
+
+</body>
+</html>
